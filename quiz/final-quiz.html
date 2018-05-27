@@ -1,0 +1,340 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Illustrator Basics</title>
+	
+<link href="https://fonts.googleapis.com/css?family=Open+Sans|Work+Sans:700" rel="stylesheet">
+	
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	  	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<style>
+	
+	footer {
+	    display: none;
+	    position: absolute;
+	    bottom: 0;
+	    width:100%;
+	}
+		
+h1 {
+    font-size: 48px;
+    font-weight: 700;
+    font-family: 'Work Sans', sans-serif !important;
+    color: white;
+    
+}
+
+label{
+  display: inline;
+	text-align: left;
+	color:#561145;
+}  
+
+h3, #next {
+  text-align: center;
+  display: inline-block;
+  border-radius: 10%;
+}
+#result {
+font-family: 'Open Sans', sans-serif !important;
+  font-weight: 300;
+  font-size: 1.5em;
+  color: #fff;
+}
+
+
+input[name="option"] {
+  float:left;  
+}
+#form {
+    display: block;
+}
+#form div{
+  margin:auto;
+  max-width: 50%;
+	text-align: left !important;
+	
+}
+input.search-submit {
+    font-weight: 600;
+}
+#progressbar {
+  float: none;
+  margin: auto;
+  margin-top: 20px;
+   
+  width: 50%;
+ }
+
+#container {
+  text-align: left;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
+.button {
+    display: inline-block;
+    padding: 1em;
+    background-color: #561245;
+    text-decoration: none !important; 
+    color: white !important;
+} 
+
+body{
+  text-align: center;
+}
+
+.progress-bar {
+  float: left;
+  width: 0;
+  height: 25px;
+  font-size: 12px;
+  line-height: 20px;
+  color: #fff;
+  text-align: center;
+  background-color: #fff;
+  -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+          box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+  -webkit-transition: width .6s ease;
+       -o-transition: width .6s ease;
+          transition: width .6s ease;
+}
+		
+div label {
+			color:#561145;
+			font-weight: 300;
+			padding-left: 10px;
+		}
+		
+h3#question{
+    text-align: left !important;
+	font-weight: 600 !important;
+	margin-left: 100px;
+    display: block;
+		}
+		
+.ui-widget-header {
+    background: repeating-linear-gradient(
+  45deg,
+  #f48204,
+  #f48204 10px,
+  #d76d10 10px,
+  #d76d10 20px
+  
+);
+
+}
+		.btn-primary {
+	background-color:
+#5a1444 !important;
+	border-color:white !important;
+	border-width:2px !important;
+	margin-top: 150px;
+}
+
+.btn-primary:hover,
+#next:hover{
+	background-color:
+#f48204 !important;
+
+}
+
+.well {
+    background-color: rgba(245,245,245,0.9)
+}
+
+	</style>
+</head>	
+<body>	
+	<h1 class="vektor grafik">Hvor godt kender du vektor grafik?</h1>
+<br/>
+	<a href="#" id="start" class="btn btn-primary btn-lg">Start Test</a>
+	<br/>
+	<div class="well jumbotron">
+	  <h3 id="question"></h3>
+	  <br/><br/>
+	  <form id="form">
+
+	  </form>
+	  <br/>
+	  <a href="#" id="next" class="button">Next</a><br/>		
+	  <div id="progressbar" class="progress-bar "></div>
+	</div>
+	<div id="result"></div>
+</body>
+	<script>
+	function QuizQuestion(question, choices, correctAnswer){
+  this.question = question;
+  this.choices = choices;
+  this.correctAnswer = correctAnswer;
+}
+  
+var allQuestions = [
+  new QuizQuestion("Hvorfor er vektor grafik vigtig?",
+				   
+				   ["De er selvstændige opløsninger og kan ændres uendeligt uden tab af kvalitet", 
+					
+					"De giver dig den største magt og kreative kontrol over 2D og 3D billedmanipulation, komposition, videoredigering og billedanalyse.", 
+					
+					"De hjælper dig med nemt at udnytte uovertruffen pixel niveau og sammensætning, hvilket giver dig en komplet professionel foto løsning."], 				   
+				   0), 
+	
+  new QuizQuestion("Hvad er illustrator CC?",
+				   
+				   ["En avanceret digital billedbehandlings software, der bruges af fotografer.", 
+					
+					"En vektor grafik software, der anvendes verden over af designere.", 
+					
+					"En end-to-end løsning til design og prototyping af brugeroplevelser."],
+				   
+				   1), 
+  new QuizQuestion("Hvad er Direct Selection tool?",
+				   
+				   ["Tillader valg af individuelle former.", 
+					
+					"Tillader valg af individuelle linjer.", 
+					
+					"Tillader valg af individuelle bogstaver.", 
+					
+					"Tillader valg af individuelle punkter."],
+				   
+				   3), 
+  new QuizQuestion("RGB er den korrekte farveindstilling for:",
+				   
+				   ["Grafik, der vises på print", 
+				   
+				   "Grafik, der vises på skærmen", 
+					
+					"Grafik, der vises på en t-shirt"], 
+				   
+				   1), 
+  new QuizQuestion("Hvad er Pen Tool?",
+				   
+				   ["Værktøj til at tegne lige og buede linjer for at skabe objekter.", 
+					
+					"Værktøj til at vælger punkter eller sti-segmenter i objekter.", 
+					
+					"Værktøj til at ændrer afrundet punkter til hjørnepunkter og omvendt."], 
+									   
+				   1), 
+  new QuizQuestion("Hvilken gruppe tilhører vektorformater, vælg den korrekte gruppe",
+				   
+				   ["ai, png, jpg", 
+					
+					"jpg, gif, bmp, png", 
+					
+					"svg, dwg, ai", 
+					
+					"svg, png, ai, jpg"],
+				   
+				   2), 
+  new QuizQuestion("En vektor grafik:",
+				   
+				   ["Taber klarhed, når du laver den større.", 
+					
+					"Kan skaleres op til enhver størrelse uden at blive forvrænget."],
+				   
+				   2), 
+  new QuizQuestion("'Bounding Box' er:",
+				   
+				   ["Sidens grænse.", 
+					
+					"En kant omkring et objekt, der vil blive udskrevet, hvis det ikke fjernes.", 
+					
+					"En ramme omkring et objekt, der kan manipuleres."], 
+				   
+				  2), 
+	  new QuizQuestion("I “Layers panel” er der mulighed for",
+				   
+				   ["Låse lag og Slette lag.", 
+					
+					"Oprette et nyt lag.", 
+					
+					"Trække illustrationer fra et lag til et andet, hvis det er valgt.",
+					"Alt ovenfor."], 
+				   
+				   3), 
+	  new QuizQuestion("Du kan ændre bredden og længden af et kanvas, når du har oprettet den.",
+				   
+				   ["Sandt.", 
+					
+					"Falsk"], 
+									   
+				   1), 
+
+
+];
+
+var currentquestion = 0;
+var correctAnswers = 0;
+
+function setupOptions() {
+  $('#question').html(parseInt(currentquestion) + 1 + ". " + allQuestions[currentquestion].question);
+  var options = allQuestions[currentquestion].choices;
+  var formHtml = '';
+  for (var i = 0; i < options.length; i++) {
+    formHtml += '<div><input type="radio" name="option" value="' + i + '" class="options"><label for="option' + i + '">' + options[i] + '</label></div><br/>';
+  }
+  $('#form').html(formHtml);
+  $(".options:eq(0)").prop('checked', true);
+}
+
+function checkAns() {
+  if ($("input[name=option]:checked").val() == allQuestions[currentquestion].correctAnswer) {
+    correctAnswers++;
+  }
+}
+
+$(document).ready(function(){	
+  var $jumbotron = $(".jumbotron");
+  var $start = $("#start");
+  var $progressbar = $("#progressbar");
+  var $next = $("#next");
+  var $result = $("#result");
+  
+	$jumbotron.hide();
+	$start.click(function() {
+	    $jumbotron.fadeIn();
+	    $(this).hide();
+  	});
+
+	$(function() {
+		$progressbar.progressbar({
+			max: allQuestions.length-1,			
+			value: 0
+		});
+	});
+
+	setupOptions();
+
+	$next.click(function(){
+			event.preventDefault();
+			checkAns();
+			currentquestion++;
+			$(function() {
+    			$progressbar.progressbar({
+      				value: currentquestion
+    			});
+  			});
+			if(currentquestion<allQuestions.length){
+				setupOptions();
+				if(currentquestion==allQuestions.length-1){
+					$next.html("Submit");
+					$next.click(function(){
+						$jumbotron.hide();
+						$result.html("<strong>Du fik " + correctAnswers + " ud af " + currentquestion + " spørgsmål korretk!</strong> <br><br> Hvis du fik 3 ud af 10, anbefaler vi at genoptage quizzen!				<br><br> Hvis du fik 7 ud af 10, anbefaler vi at gå til vores Video Tutorial <br> <br> Hvis du fik 10 ud af 10, anbefaler vi  at kigge på genvejssiden for at gøre din arbejdsproces endnu hurtigere!").hide();
+						$result.fadeIn(1500);
+					});
+
+				}
+				
+			};
+	});	
+});
+	</script>
+</html>

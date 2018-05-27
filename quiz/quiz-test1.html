@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+div#test{ border:#000 1px solid; padding:10px 40px 40px 40px; }
+</style>
+<script>
+var pos = 0, test, test_status, question, choice, choices, chA, chB, chC, chD, correct = 0;
+var questions = [
+    [ "Which color mode does a computer monitor use, and which does a printer use?", "Monitor uses RGB, printer uses CMYK", "Monitor uses CYMK, printer uses RGB", "Monitor uses CYMK, printer uses RGB", ],
+	
+	[ "What is the direct selection tool?", "Allows the selection of individual shapes", "Allows the selection of individual lines", "Allows the selection of individual letters", "Allows the selection of individual points", "D" ],
+	
+	[ "What does live paint allow you to do?", "Fill specific areas different colors", "Change the color of the whole image at once", "Draw things freely by hand", "Remove color from an image", "C" ],
+	
+	[ "Which of these is possible?", "Using Photoshop to convert raster images to vector images", "Using Illustrator to convert vector images to raster images", "Using Bridge to convert grayscale images to vector images", "Using Dreamweaver to convert gifs into vector images", "B" ],
+	[ "Fundamental transformation tools include all of the following except:", "Scale", "Rotate", "Reflect", "Invert", "D" ],
+	[ "What is the area bounded by a solid line in which you create your artwork?", "Main area", "White Zone", "Artboard", "Drawing Zone", "C" ],
+	[ "RGB stands for:", "Red, Green, Black", "Red, Gray, Blue", "Red, Gray, Black", "Red, Green, Blue", "B" ],
+	[ "When working with art work, what is the best practice?", "There are no best practices when working with art work.", "Save your work frequently to avoid loosing anything.", "Work from a copy of the original artwork to avoid destroying the original art work.", "Illustrator saves automatically, just work", "A" ],
+	[ "Which of the following choices are an acceptable means of preserving the original artwork? There are multiple ways to make a backup of the original artwork.", "Make a duplicate copy of the file.", "In Photoshop, open your artwork and copy the layer, remembering to lock the original layer.", "There is no need to make a copy", "Make a duplicate copy of an layer and locking the original", "" ],
+	[ "What is 7 x 3?", "21", "24", "25", "A", "" ],
+	[ "What is 7 x 3?", "21", "24", "25", "A", "" ],
+	[ "What is 7 x 3?", "21", "24", "25", "A", "" ],
+];
+function _(x){
+	return document.getElementById(x);
+}
+function renderQuestion(){
+	test = _("test");
+	if(pos >= questions.length){
+		test.innerHTML = "<h2>You got "+correct+" of "+questions.length+" questions correct</h2>";
+		_("test_status").innerHTML = "Test Completed";
+		pos = 0;
+		correct = 0;
+		return false;
+	}
+	_("test_status").innerHTML = "Question "+(pos+1)+" of "+questions.length;
+	question = questions[pos][0];
+	chA = questions[pos][1];
+	chB = questions[pos][2];
+	chC = questions[pos][3];
+	chD = questions[pos][4];
+	test.innerHTML = "<h3>"+question+"</h3>";
+	test.innerHTML += "<input type='radio' name='choices' value='A'> "+chA+"<br>";
+	test.innerHTML += "<input type='radio' name='choices' value='B'> "+chB+"<br>";
+	test.innerHTML += "<input type='radio' name='choices' value='B'> "+chC+"<br>";
+	test.innerHTML += "<input type='radio' name='choices' value='C'> "+chD+"<br><br>";
+	test.innerHTML += "<button onclick='checkAnswer()'>Submit Answer</button>";
+}
+function checkAnswer(){
+	choices = document.getElementsByName("choices");
+	for(var i=0; i<choices.length; i++){
+		if(choices[i].checked){
+			choice = choices[i].value;
+		}
+	}
+	if(choice == questions[pos][5]){
+		correct++;
+	}
+	pos++;
+	renderQuestion();
+}
+window.addEventListener("load", renderQuestion, false);
+</script>
+</head>
+<body>
+<h2 id="test_status"></h2>
+<div id="test"></div>
+</body>
+</html>

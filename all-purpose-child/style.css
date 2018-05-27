@@ -1,0 +1,121 @@
+/*
+ Theme Name:   All Purpose Child
+ Theme URI:    https://seosthemes.com/free-wordpress-all-purpose-theme/
+ Description:  CHILD THEME OF THE ALL PURPOSE THEME https://seosthemes.com/free-wordpress-all-purpose-theme/
+ Author:       Kristjansson
+ Author URI:   http://kristjansson.dk
+ Template:     all-purpose
+ Version:      1.0.0
+ License:      GNU General Public License version 3.0
+ License URI:  http://www.gnu.org/licenses/gpl-3.0.html
+ Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+ Text Domain:  all-purpose
+*/
+
+footer {
+	background: #5a1444 !important;
+	font-family: 'Open Sans', sans-serif;
+}
+footer {
+	color: white;
+	font-size: 16px;
+	padding: 15px;
+}
+footer a {
+	color:#f38104;
+	font-weight: bold;
+	text-decoration:none;
+
+		
+}
+.main { 
+		padding: 20px;
+    display: flex; 
+	margin: 0 50px;
+    justify-content: space-between;
+  }
+.main .a a{
+	padding: 10px;
+}
+.nav-center {
+	text-align:left;
+}
+@media screen and (max-width: 66.5em){
+		.main-navigation li {
+			background:rgb(72,20,43);
+		}
+	}
+		.main-navigation li #menu-item-99,.main-navigation li #menu-item-43,.main-navigation li #menu-item-44,.main-navigation li #menu-item-45,.main-navigation li #menu-item-46{
+			background:#681e3e;
+		}
+@media screen and (max-width: 66.5em){
+	.menu-toggle {
+		background:#49152b;
+		font-family: 'Open Sans', sans-serif;
+		text-transform: uppercase;		
+}
+	}
+
+.page-id-25 #page {
+	height: 95vh !important;
+}
+.page-id-25 footer{
+	position:absolute;
+	width:100%;
+	bottom:0;
+}
+
+div#content.site-content {
+	display:block;
+}
+
+body.custom-background.page-id-315{
+		background-image: url(http://kristjansson.dk/illustrator/wp-content/uploads/2018/05/baggrund-purple.png) !important;
+}
+
+body .page-id-35 .custom-background {
+	background-image: none;
+}
+
+@media screen and (max-width: 400px){
+	footer {
+		display:none !important;
+position: relative;
+		bottom: auto;
+}
+	}
+
+form {
+	display: inline-flex;
+
+}
+
+
+@media screen and (max-width: 910px){
+    .astm-search-menu-wrapper {
+        display: none;
+    }
+    
+}
+input.search-field {
+    border-width: 2px;
+    border-style: solid;
+    border-color: white;
+    border-image: white;
+    border-radius:5px 0 0 5px;
+}
+
+input.search-submit{
+    color:#48142b;
+    background: #f0f0f0;
+    border-color:#f0f0f0 #f0f0f0 #f0f0f0 #48142b;;
+    border-style: solid;
+    border-radius:0 5px 5px 0;
+    font-weight:600;
+}
+.nav-center {
+	background-image: url(images/baggrund-purple.png);
+	display:block !important;
+}
+
+
